@@ -15,7 +15,7 @@ export function App() {
 
   const [newTasks, setNewTasks] = useState('');
 
-  const [totalComplete, setTotalCompleted] = useState(0);
+  const [totalComplete, setTotalCompleted] = useState('');
 
   function handleCreateNewTask(event) {
     event.preventDefault();
@@ -52,12 +52,13 @@ export function App() {
   }
 
   function totalCompletedTasks(isComplete) {
-    const totalCompleted = tasks.reduce((total, task) => {
-      if (task.isComplete === !isComplete) {
-        return total + 1;
+    const totalCompleted = tasks.reduce((acc, task) => {
+      if (task.isComplete !== isComplete) {
+       acc + 1;
       } else {
-        return total;
+       acc;
       }
+      return acc;
     }, 0);
     setTotalCompleted(totalCompleted);
   }

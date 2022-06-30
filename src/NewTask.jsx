@@ -9,7 +9,7 @@ export function NewTasks({ content, identifier, status, countCompletedTasks, onD
 
     function handleToogleTaskStatus() {
         onCompleteTask(identifier);
-        countCompletedTasks(identifier);
+        countCompletedTasks(status);
     }
 
 
